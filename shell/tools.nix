@@ -5,7 +5,7 @@
   imports = [ ./vim.nix ];
 	home-manager.users.arne = {
     home.packages = with pkgs; [
-      exa ranger unzip rclone wget
+      exa ranger unzip wget
     ];
 		xdg.configFile = {
 			"ranger/rc.conf".source = ./ranger/rc.conf;

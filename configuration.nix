@@ -13,6 +13,7 @@
       ./shell/zsh.nix
 		  ./graphical-tools.nix
 			./home-manager.nix
+			./pCloud.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
