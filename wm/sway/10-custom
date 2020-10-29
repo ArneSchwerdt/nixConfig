@@ -1,0 +1,63 @@
+# Terminal
+set $term kitty
+
+# font 
+font "Share Tech Mono" 12
+
+# window 
+gaps inner 10
+for_window [app_id="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 1
+
+# transparency
+set $opacity 0.9
+#for_window [class=".*"] opacity $opacity
+#for_window [app_id=".*"] opacity $opacity
+for_window [app_id="Alacritty"] opacity $opacity
+for_window [app_id="kitty"] opacity $opacity
+
+# background
+set $bg1 "/home/arne/dotfiles/wallpapers/1.jpg"
+set $bg2 "/home/arne/dotfiles/wallpapers/2.jpg"
+set $bg3 "/home/arne/dotfiles/wallpapers/3.jpg"
+set $bg4 "/home/arne/dotfiles/wallpapers/4.jpg"
+
+output * bg $bg2  fill
+# bindings
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +1000
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -1000
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
+
+# lock 
+set $lock "swaylock -i $bg1 -c 000000"
+exec swayidle -w before-sleep $lock
+bindsym $mod+l exec $lock
+
+# bar settings
+bar {
+    position top
+
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    swaybar_command waybar
+
+    colors {
+        statusline #ffffff
+        background #323232
+        inactive_workspace #32323200 #32323200 #5c5c5c
+    }
+}
+
+# input device settings
+input "1:1:AT_Translated_Set_2_keyboard" {
+        xkb_layout "de"
+}
+
+input "1267:34:Elan_Touchpad" {
+        tap enabled
+}
+asdasd
