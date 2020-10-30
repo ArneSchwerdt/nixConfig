@@ -8,9 +8,9 @@
 					Description = "Sync personal data to pCloud";
 				};
 				Service = {
-					Type = "oneshot";
+					Type = "simple";
 					WorkingDirectory = "%h";
-					ExecStart = "/sbin/rclone -L --include Passwörter.kdbx copy pCloud remote:";
+					ExecStart = "${pkgs.rclone}/bin/rclone -L --include Passwörter.kdbx copy pCloud pCloud:";
 					Restart = "no";
 				};
 				Install = {
